@@ -59,6 +59,9 @@ PRODUCT_PACKAGES += \
 	uim \
 	wpa_supplicant
 
+# Overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
+
 # Ramdik
 PRODUCT_COPY_FILES += \
        $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
