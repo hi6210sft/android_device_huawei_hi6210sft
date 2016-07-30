@@ -91,7 +91,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 
 # Selinux
 BOARD_SEPOLICY_DIRS += \
-    	device/huawei/hi6210sft/selinux
+    	device/huawei/hi6210sft/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     	file_contexts \
