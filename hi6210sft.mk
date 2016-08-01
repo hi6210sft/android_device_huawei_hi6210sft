@@ -64,6 +64,10 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
+# Lights
+PRODUCT_PACKAGES += \
+        lights.hi6210sft
+
 # Live Wallpaper
 PRODUCT_PACKAGES += \
     Galaxy4 \
@@ -126,7 +130,6 @@ PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
 
 # Wifi
-
 PRODUCT_PROPERTY_OVERRIDES += \
     	wifi.interface=wlan0 \
     	wifi.supplicant_scan_interval=15
