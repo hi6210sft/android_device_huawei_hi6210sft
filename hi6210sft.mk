@@ -37,25 +37,6 @@ PRODUCT_PACKAGES += \
     	make_ext4fs \
     	setup_fs
 
-# GPS
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/rootdir/etc/gps.conf:system/etc/gps.conf \
-        $(LOCAL_PATH)/rootdir/etc/gpsconfig.xml:system/etc/gpsconfig.xml \
-        $(LOCAL_PATH)/rootdir/etc/hisi_cfg.ini:system/etc/hisi_cfg.ini \
-        $(LOCAL_PATH)/rootdir/etc/hisi_cfg_alice.ini:system/etc/hisi_cfg_alice.ini \
-        $(LOCAL_PATH)/rootdir/etc/hisi_cfg_cherry.ini:system/etc/hisi_cfg_cherry.ini \
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/rootdir/lib/hw/gps.hi110x.default.so:system/lib/hw/gps.hi110x.default.so \
-        $(LOCAL_PATH)/rootdir/lib64/hw/gps.hi110x.default.so:system/lib64/hw/gps.hi110x.default.so \
-        $(LOCAL_PATH)/rootdir/lib64/hw/gps.hi6210sft.so:system/lib64/hw/gps.hi6210sft.so
-
-PRODUCT_PACKAGES += \
-	gps.hi110x.default \
-	gps.hi6210sft
-
 # Graphics (Don't use hwcomposer.hi6210sft module for now or will not boot)
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/mali/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so \
@@ -121,16 +102,12 @@ PRODUCT_COPY_FILES += \
     	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    	frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
  	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
  	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-       $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
-       $(LOCAL_PATH)/ramdisk/init.chip.hi6210sft.rc:root/init.chip.hi6210sft.rc \
-       $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
-       $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.dsds_mode=umts_gsm \
@@ -152,11 +129,6 @@ PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
 
 # Wifi
-PRODUCT_PACKAGES += \
-    	dhcpcd.conf \
-    	hostapd \
-    	wpa_supplicant \
-    	wpa_supplicant.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     	wifi.interface=wlan0 \
