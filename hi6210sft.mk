@@ -6,39 +6,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 PRODUCT_AAPT_CONFIG := xhdpi hdpi normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-# Audio
-$(call inherit-product, device/huawei/hi6210sft/products/Audio.mk)
-
-PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/etc/audio,system/etc/audio) \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/etc/srs,system/etc/srs) \
-	$(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir/etc/sws,system/etc/sws)
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/rootdir/etc/audio_effects.conf:system/etc/audio_effects.conf \
-        $(LOCAL_PATH)/rootdir/etc/audio_policy.conf:system/etc/audio_policy.conf
-
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/rootdir/etc/media_codecs.xml:system/etc/media_codecs.xml \
-        $(LOCAL_PATH)/rootdir/etc/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
-        $(LOCAL_PATH)/rootdir/etc/media_profiles.xml:system/etc/media_profiles.xml \
-
-PRODUCT_PACKAGES += \
-        audio.a2dp.default \
-	audio_policy.stub \
-	audio.primary.default \
-	audio.primary.hi6210sft \
-	audio.r_submix.default \
-	audio.usb.default \
-	libaudioflinger \
-	libaudioutils \
-	libtinyalsa \
-	sound_trigger.primary.hi6210sft \
-	tinycap \
-	tinymix \
-	tinypcminfo \
-	tinyplay
-
 # Chromium 32 Bit
 PRODUCT_COPY_FILES += \
        $(LOCAL_PATH)/chrome/lib/libwebviewchromium.so:system/lib/libwebviewchromium.so \
