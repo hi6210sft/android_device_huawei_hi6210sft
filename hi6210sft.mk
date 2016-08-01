@@ -99,9 +99,12 @@ PRODUCT_COPY_FILES += \
  	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
  	packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
 
-# Ramdisk
+# Ramdisk by Haky86
 PRODUCT_COPY_FILES += \
-
+       $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
+       $(LOCAL_PATH)/ramdisk/init.chip.hi6210sft.rc:root/init.chip.hi6210sft.rc \
+       $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
+       $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.dsds_mode=umts_gsm \
