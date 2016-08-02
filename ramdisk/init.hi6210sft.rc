@@ -1063,7 +1063,7 @@ service sleeplogcat /system/bin/sleeplogcat -t 10 -p /data/android_logs/
     disabled
     seclabel u:r:hisilogcat:s0
 
-service teecd /bin/teecd
+service teecd /system/bin/teecd
      class main
      class main
      user root
