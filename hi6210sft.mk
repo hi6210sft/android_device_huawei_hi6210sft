@@ -6,6 +6,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 PRODUCT_AAPT_CONFIG := xhdpi hdpi normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+	Bluetooth
+
 # Blobs
 $(call inherit-product-if-exists, vendor/huawei/hi6210sft/hi6210sft-vendor.mk)
 PRODUCT_RESTRICT_VENDOR_FILES := false
@@ -53,6 +57,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     	persist.sys.strictmode.disable=1 \
     	persist.sys.use_dithering=2 \
     	ro.opengles.version=131072
+
+# GPS
+PRODUCT_PACKAGES += \
+    	gps.hi6210sft \
 
 # Kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -130,6 +138,17 @@ PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
 
 # Wifi
+PRODUCT_PACKAGES += \
+	hisi_connectivity.sh \
+	hostapd_cli_hisi \
+	hostapd_hisi \
+	hostapd_hisi.conf \
+	p2p_supplicant_overlay.conf \
+	wpa_supplicant \
+	wpa_supplicant.conf \
+	wpa_supplicant_hisi \
+	wpa_supplicant_overlay.conf	
+
 PRODUCT_PROPERTY_OVERRIDES += \
     	wifi.interface=wlan0 \
     	wifi.supplicant_scan_interval=15
