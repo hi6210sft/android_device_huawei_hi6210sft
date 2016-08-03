@@ -26,6 +26,8 @@ BOARD_USES_GENERIC_AUDIO := true
 -include vendor/huawei/hi6210sft/BoardConfigVendor.mk
 
 # Bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/huawei/hi6210sft/bluetooth/vnd_hi6210sft.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := "device/huawei/hi6210sft/bluetooth"
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
@@ -94,6 +96,9 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_FSTAB := device/huawei/hi6210sft/ramdisk/fstab.hi6210sft
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
+
+# RIL
+BOARD_RIL_CLASS := ../../../device/huawei/hi6210sft/ril/
 
 # Selinux
 BOARD_SEPOLICY_DIRS += \

@@ -6,6 +6,29 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 PRODUCT_AAPT_CONFIG := xhdpi hdpi normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Audio
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/rootdir/etc/audio_effects.conf:system/etc/audio_effects.conf \
+        $(LOCAL_PATH)/rootdir/etc/audio_policy.conf:system/etc/audio_policy.conf
+
+PRODUCT_PACKAGES += \
+    	audio.a2dp.default \
+    	audio_policy.stub \
+    	audio.primary.default \
+	audio.primary.hi6210sft \
+    	audio.r_submix.default \
+    	audio.usb.default \
+	libaudio_custom \
+	libaudioom \
+	libaudioroute \
+    	libaudioutils \
+    	libtinyalsa \
+    	sound_trigger.primary.hi6210sft \
+    	tinycap \
+    	tinypcminfo \
+    	tinyplay \
+    	tinymix \
+
 # Bluetooth
 PRODUCT_PACKAGES += \
 	Bluetooth
@@ -113,49 +136,14 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk by Haky86
 PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
-        $(LOCAL_PATH)/ramdisk/init:root/init \
-        $(LOCAL_PATH)/ramdisk/init.5801.rc:root/init.5801.rc \
-        $(LOCAL_PATH)/ramdisk/init.6165.rc:root/init.6165.rc \
-        $(LOCAL_PATH)/ramdisk/init.10106.rc:root/init.10106.rc \
-        $(LOCAL_PATH)/ramdisk/init.51054.rc:root/init.51054.rc \
-        $(LOCAL_PATH)/ramdisk/init.102173.rc:root/init.102173.rc \
-        $(LOCAL_PATH)/ramdisk/init.142782.rc:root/init.142782.rc \
-        $(LOCAL_PATH)/ramdisk/init.audio.rc:root/init.audio.rc \
-        $(LOCAL_PATH)/ramdisk/init.connectivity.bcm43xx.rc:root/init.connectivity.bcm43xx.rc \
-        $(LOCAL_PATH)/ramdisk/init.connectivity.hi110x.rc:root/init.connectivity.hi110x.rc \
-        $(LOCAL_PATH)/ramdisk/init.connectivity.rc:root/init.connectivity.rc \
-        $(LOCAL_PATH)/ramdisk/init.device.rc:root/init.device.rc \
-        $(LOCAL_PATH)/ramdisk/init.extmodem.rc:root/init.extmodem.rc \
-        $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
-        $(LOCAL_PATH)/ramdisk/init.hisi.rc:root/init.hisi.rc \
-        $(LOCAL_PATH)/ramdisk/init.manufacture.rc:root/init.manufacture.rc \
-        $(LOCAL_PATH)/ramdisk/init.performance.rc:root/init.performance.rc \
-        $(LOCAL_PATH)/ramdisk/init.platform.rc:root/init.platform.rc \
-        $(LOCAL_PATH)/ramdisk/init.protocol.rc:root/init.protocol.rc \
-        $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
-        $(LOCAL_PATH)/ramdisk/init.recovery.hi110x.rc:root/init.recovery.hi110x.rc \
-        $(LOCAL_PATH)/ramdisk/init.recovery.hi6210sft.rc:root/init.recovery.hi6210sft.rc \
-        $(LOCAL_PATH)/ramdisk/init.tee.rc:root/init.tee.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.5801.rc:root/ueventd.5801.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.6165.rc:root/ueventd.6165.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.10106.rc:root/ueventd.10106.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.51054.rc:root/ueventd.51054.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.102173.rc:root/ueventd.102173.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.142782.rc:root/ueventd.142782.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc \
+       $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
+       $(LOCAL_PATH)/ramdisk/init.chip.hi6210sft.rc:root/init.chip.hi6210sft.rc \
+       $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
+       $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc
 
+# SBIN
 PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/ramdisk/sbin/check_root:root/sbin/check_root \
-        $(LOCAL_PATH)/ramdisk/sbin/e2fsck_s:root/sbin/e2fsck_s \
-        $(LOCAL_PATH)/ramdisk/sbin/emmc_partation:root/sbin/emmc_partation \
-        $(LOCAL_PATH)/ramdisk/sbin/hdbd:root/sbin/hdbd \
-        $(LOCAL_PATH)/ramdisk/sbin/healthd:root/sbin/healthd \
-        $(LOCAL_PATH)/ramdisk/sbin/kmsgcat:root/sbin/kmsgcat \
-        $(LOCAL_PATH)/ramdisk/sbin/logctl_service:root/sbin/logctl_service \
-        $(LOCAL_PATH)/ramdisk/sbin/ntfs-3gd:root/sbin/ntfs-3gd \
-        $(LOCAL_PATH)/ramdisk/sbin/oeminfo_nvm_server:root/sbin/oeminfo_nvm_server \
-        $(LOCAL_PATH)/ramdisk/sbin/teecd:root/sbin/teecd \
+        $(LOCAL_PATH)/ramdisk/sbin/teecd:system/bin/teecd
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.dsds_mode=umts_gsm \
@@ -178,18 +166,15 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-	hisi_connectivity.sh \
-	hostapd_cli_hisi \
-	hostapd_hisi \
+	bt_vendor.conf \
+	dhcpcd \
 	hostapd_hisi.conf \
+	oam_app \
 	octty \
-	p2p_supplicant_overlay.conf \
-	supl20clientd \
-	wpa_supplicant \
-	wpa_supplicant.conf \
+	wpa_cli_hisi \
 	wpa_supplicant_hisi \
-	wpa_supplicant_hisi.conf \
-	wpa_supplicant_overlay.conf	
+ 	wpa_supplicant_hisi.conf \
+    	wpa_supplicant.conf \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     	wifi.interface=wlan0 \
