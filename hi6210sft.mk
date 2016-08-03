@@ -136,14 +136,12 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk by Haky86
 PRODUCT_COPY_FILES += \
-       $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
-       $(LOCAL_PATH)/ramdisk/init.chip.hi6210sft.rc:root/init.chip.hi6210sft.rc \
-       $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
-       $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc
-
-# SBIN
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/ramdisk/sbin/teecd:system/bin/teecd
+        $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
+        $(LOCAL_PATH)/ramdisk/init.chip.hi6210sft.rc:root/init.chip.hi6210sft.rc \
+        $(LOCAL_PATH)/ramdisk/init.connectivity.gps.rc:root/init.connectivity.gps.rc \
+        $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
+        $(LOCAL_PATH)/ramdisk/init.hi6210sft.usb.rc:root/init.hi6210sft.usb.rc \
+        $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.dsds_mode=umts_gsm \
