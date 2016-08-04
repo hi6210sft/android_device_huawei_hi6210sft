@@ -1,1 +1,2 @@
 add_lunch_combo aosp_hi6210sft-eng
+add_lunch_combo cm_hi6210sft-eng
