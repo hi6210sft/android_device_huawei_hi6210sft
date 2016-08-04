@@ -677,12 +677,6 @@ on boot
 
     chown system system /sys/module/bcmdhd/parameters/dhd_console_ms	
 
-service kerneldump /system/etc/kerneldump.sh
-    class main
-    user root
-    group system
-    oneshot
-
 service agnsslog /system/bin/agnsslog
     class main
     user system
@@ -955,10 +949,6 @@ service logctl_service /sbin/logctl_service -m 1
     group system
     seclabel u:r:hisilogcat:s0
 
-service check_hota /system/bin/sh /system/etc/check_hota.sh
-    class core
-    oneshot
-
 service mapper /system/bin/sh /system/bin/mappersh
     class late_start
     user root
@@ -1114,18 +1104,11 @@ service wpa_supplicant /system/bin/wpa_supplicant -ddd \
     disabled
     oneshot
 
-service exch /system/etc/log/android_panic.sh
-    class main
-    user root
-    group system
-    oneshot
-
 service watchlssd /system/xbin/watchlssd
     class main
     user system
     group system inet net_raw
     disabled
-
 
 on property:service.bootanim.exit=1	
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor optdemand
