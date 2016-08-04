@@ -922,6 +922,12 @@ service kmsglogcat /sbin/kmsgcat -r 4096 -z 5 -n 5 -f /data/android_logs/kmsgcat
     disabled
     seclabel u:r:hisilogcat:s0
 
+service teecd /sbin/teecd
+    class main
+    user root
+    group root
+    seclabel u:r:teecd:s0
+
 service applogcat /system/bin/logcat -v threadtime -r4096 -z 10 -n 5 -f /data/android_logs/applogcat-log
     class late_start
     user root
