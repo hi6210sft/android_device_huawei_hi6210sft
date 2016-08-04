@@ -31,7 +31,7 @@ PRODUCT_PACKAGES += \
 	Bluetooth
 
 # Blobs
-$(call inherit-product, vendor/huawei/h60-common/common-vendor.mk)
+$(call inherit-product, vendor/huawei/hi6210sft/hi6210sft-vendor.mk)
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Codecs
@@ -141,12 +141,21 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk by Haky86
 PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
-        $(LOCAL_PATH)/ramdisk/init.chip.hi6210sft.rc:root/init.chip.hi6210sft.rc \
-        $(LOCAL_PATH)/ramdisk/init.connectivity.gps.rc:root/init.connectivity.gps.rc \
-        $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
-        $(LOCAL_PATH)/ramdisk/init.hi6210sft.usb.rc:root/init.hi6210sft.usb.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc \
+       $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
+       $(LOCAL_PATH)/ramdisk/init.chip.hi6210sft.rc:root/init.chip.hi6210sft.rc \
+       $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
+       $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc
+
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/ramdisk/sbin/check_root:root/sbin/check_root \
+        $(LOCAL_PATH)/ramdisk/sbin/e2fsck_s:root/sbin/e2fsck_s \
+        $(LOCAL_PATH)/ramdisk/sbin/emmc_partation:root/sbin/emmc_partation \
+        $(LOCAL_PATH)/ramdisk/sbin/hdbd:root/sbin/hdbd \
+        $(LOCAL_PATH)/ramdisk/sbin/kmsgcat:root/sbin/kmsgcat \
+        $(LOCAL_PATH)/ramdisk/sbin/logctl_service:root/sbin/logctl_service \
+        $(LOCAL_PATH)/ramdisk/sbin/ntfs-3gd:root/sbin/ntfs-3gd \
+        $(LOCAL_PATH)/ramdisk/sbin/oeminfo_nvm_server:root/sbin/oeminfo_nvm_server \
+        $(LOCAL_PATH)/ramdisk/sbin/teecd:root/sbin/teecd \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.dsds_mode=umts_gsm \
