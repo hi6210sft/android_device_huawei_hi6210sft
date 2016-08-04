@@ -18,9 +18,6 @@ PRODUCT_PACKAGES += \
 	audio.primary.hi6210sft \
     	audio.r_submix.default \
     	audio.usb.default \
-	libaudio_custom \
-	libaudioom \
-	libaudioroute \
     	libaudioutils \
     	libtinyalsa \
     	sound_trigger.primary.hi6210sft \
@@ -34,8 +31,16 @@ PRODUCT_PACKAGES += \
 	Bluetooth
 
 # Blobs
-$(call inherit-product-if-exists, vendor/huawei/hi6210sft/hi6210sft-vendor.mk)
+$(call inherit-product, vendor/huawei/h60-common/common-vendor.mk)
 PRODUCT_RESTRICT_VENDOR_FILES := false
+
+# Codecs
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/rootdir/etc/media_codecs.xml:system/etc/media_codecs.xml \
+        $(LOCAL_PATH)/rootdir/etc/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+        $(LOCAL_PATH)/rootdir/etc/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+        $(LOCAL_PATH)/rootdir/etc/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+        $(LOCAL_PATH)/rootdir/etc/media_profiles.xml:system/etc/media_profiles.xml \
 
 # Chromium 32 Bit
 PRODUCT_COPY_FILES += \
