@@ -6,6 +6,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 PRODUCT_AAPT_CONFIG := xhdpi hdpi normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# ADB
+PRODUCT_PROPERTY_OVERRIDES += \
+         debug.sf.no_hw_vsync=1 \
+         ro.adb.secure=0 \
+         ro.secure=0
+
 # Audio
 PRODUCT_PACKAGES += \
     	audio.a2dp.default \
@@ -25,6 +31,13 @@ PRODUCT_PACKAGES += \
 # Blobs
 $(call inherit-product, vendor/huawei/hi6210sft/hi6210sft-vendor.mk)
 PRODUCT_RESTRICT_VENDOR_FILES := false
+
+# Bluetooth
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf \
+        $(LOCAL_PATH)/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf \
+        $(LOCAL_PATH)/bluetooth/bt_stack.conf:system/etc/bluetooth/bt_stack.conf \
+        $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
 
 # Chromium 32 Bit
 PRODUCT_COPY_FILES += \
@@ -126,37 +139,9 @@ PRODUCT_COPY_FILES += \
 # Ramdisk by Haky86
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/ramdisk/fstab.hi6210sft:root/fstab.hi6210sft \
-        $(LOCAL_PATH)/ramdisk/init:root/init \
-        $(LOCAL_PATH)/ramdisk/init.5801.rc:root/init.5801.rc \
-        $(LOCAL_PATH)/ramdisk/init.6165.rc:root/init.6165.rc \
-        $(LOCAL_PATH)/ramdisk/init.10106.rc:root/init.10106.rc \
-        $(LOCAL_PATH)/ramdisk/init.51054.rc:root/init.51054.rc \
-        $(LOCAL_PATH)/ramdisk/init.102173.rc:root/init.102173.rc \
-        $(LOCAL_PATH)/ramdisk/init.142782.rc:root/init.142782.rc \
-        $(LOCAL_PATH)/ramdisk/init.audio.rc:root/init.audio.rc \
-        $(LOCAL_PATH)/ramdisk/init.chip.usb.rc:root/init.chip.usb.rc \
-        $(LOCAL_PATH)/ramdisk/init.connectivity.bcm43xx.rc:root/init.connectivity.bcm43xx.rc \
-        $(LOCAL_PATH)/ramdisk/init.connectivity.hi110x.rc:root/init.connectivity.hi110x.rc \
-        $(LOCAL_PATH)/ramdisk/init.connectivity.rc:root/init.connectivity.rc \
-        $(LOCAL_PATH)/ramdisk/init.device.rc:root/init.device.rc \
-        $(LOCAL_PATH)/ramdisk/init.extmodem.rc:root/init.extmodem.rc \
+        $(LOCAL_PATH)/ramdisk/init.chip.hi6210sft.rc:root/init.chip.hi6210sft.rc \
         $(LOCAL_PATH)/ramdisk/init.hi6210sft.rc:root/init.hi6210sft.rc \
-        $(LOCAL_PATH)/ramdisk/init.hisi.rc:root/init.hisi.rc \
-        $(LOCAL_PATH)/ramdisk/init.manufacture.rc:root/init.manufacture.rc \
-        $(LOCAL_PATH)/ramdisk/init.performance.rc:root/init.performance.rc \
-        $(LOCAL_PATH)/ramdisk/init.platform.rc:root/init.platform.rc \
-        $(LOCAL_PATH)/ramdisk/init.protocol.rc:root/init.protocol.rc \
-        $(LOCAL_PATH)/ramdisk/init.rc:root/init.rc \
-        $(LOCAL_PATH)/ramdisk/init.recovery.hi110x.rc:root/init.recovery.hi110x.rc \
-        $(LOCAL_PATH)/ramdisk/init.recovery.hi6210sft.rc:root/init.recovery.hi6210sft.rc \
-        $(LOCAL_PATH)/ramdisk/init.tee.rc:root/init.tee.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.5801.rc:root/ueventd.5801.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.6165.rc:root/ueventd.6165.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.10106.rc:root/ueventd.10106.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.51054.rc:root/ueventd.51054.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.102173.rc:root/ueventd.102173.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.142782.rc:root/ueventd.142782.rc \
-        $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc \
+        $(LOCAL_PATH)/ramdisk/ueventd.hi6210sft.rc:root/ueventd.hi6210sft.rc
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/ramdisk/sbin/check_root:root/sbin/check_root \
