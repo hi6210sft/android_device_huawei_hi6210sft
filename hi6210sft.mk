@@ -12,22 +12,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
          ro.adb.secure=0 \
          ro.secure=0
 
-# Audio
-PRODUCT_PACKAGES += \
-    	audio.a2dp.default \
-    	audio_policy.stub \
-    	audio.primary.default \
-	audio.primary.hi6210sft \
-    	audio.r_submix.default \
-    	audio.usb.default \
-    	libaudioutils \
-    	libtinyalsa \
-    	sound_trigger.primary.hi6210sft \
-    	tinycap \
-    	tinypcminfo \
-    	tinyplay \
-    	tinymix \
-
 # Blobs
 $(call inherit-product, vendor/huawei/hi6210sft/hi6210sft-vendor.mk)
 PRODUCT_RESTRICT_VENDOR_FILES := false
@@ -82,10 +66,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     	persist.sys.strictmode.disable=1 \
     	persist.sys.use_dithering=2 \
     	ro.opengles.version=131072
-
-# GPS
-PRODUCT_PACKAGES += \
-    	gps.hi6210sft \
 
 # Kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
