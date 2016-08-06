@@ -47,6 +47,17 @@ PRODUCT_PACKAGES += \
 	gatord
 
 # Graphics
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/rootdir/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so \
+        $(LOCAL_PATH)/rootdir/lib/hw/gralloc.hi6210sft.so:system/lib/hw/gralloc.hi6210sft.so \
+        $(LOCAL_PATH)/rootdir/lib/libion.so:system/lib/libion.so
+
+# Graphics 64 Bit
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/rootdir/lib64/egl/libGLES_mali.so:system/lib64/egl/libGLES_mali.so \
+        $(LOCAL_PATH)/rootdir/lib64/hw/gralloc.hi6210sft.so:system/lib64/hw/gralloc.hi6210sft.so \
+        $(LOCAL_PATH)/rootdir/lib64/libion.so:system/lib64/libion.so
+
 PRODUCT_PACKAGES += \
 	gralloc.hi6210sft \
 	libGLES_android \
