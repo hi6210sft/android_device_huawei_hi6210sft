@@ -121,6 +121,22 @@ endif
 PRODUCT_COPY_FILES += \
     	$(LOCAL_KERNEL):kernel
 
+# NFC
+NFCEE_ACCESS_PATH := $(LOCAL_PATH)/rootdir/etc/nfcee_access.xml
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/rootdir/lib64/hw/nfc_nci.pn54x.default.so:system/lib64/hw/ \
+    	$(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
+        $(LOCAL_PATH)/rootdir/etc/libnfc-brcm-alice.conf:system/etc/libnfc-brcm-alice.conf \
+        $(LOCAL_PATH)/rootdir/etc/libnfc-nxp-alice.conf:system/etc/libnfc-nxp-alice.conf
+
+PRODUCT_PACKAGES += \
+    	libnfc-nci \
+    	libnfc_nci_jni \
+    	nfc_nci.pn54x.default \
+    	NfcNci \
+    	Tag \
+    	com.android.nfc_extras
+
 # OpenSSH
 PRODUCT_PACKAGES += \
 	scp \
@@ -141,6 +157,8 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
         frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
         frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
+    	frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    	frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
         frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
         frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
         frameworks/native/data/etc/android.software.app_widgets.xml:system/etc/permissions/android.software.app_widgets.xml \
