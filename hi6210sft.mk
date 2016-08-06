@@ -50,6 +50,32 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	gatord
 
+# GPS
+PRODUCT_COPY_FILES += \
+	$(call find-copy-subdir-files,*,device/huawei/hi6210sft/rootdir/etc/gnss,system/etc/gnss) \
+        $(LOCAL_PATH)/rootdir/bin/agnsscontrol:system/bin/agnsscontrol \
+        $(LOCAL_PATH)/rootdir/bin/agnsslog:system/bin/agnsslog \
+        $(LOCAL_PATH)/rootdir/bin/glgps:system/bin/glgps \
+        $(LOCAL_PATH)/rootdir/bin/gnss_engine:system/bin/gnss_engine \
+        $(LOCAL_PATH)/rootdir/bin/gpsdaemon:system/bin/gpsdaemon \
+        $(LOCAL_PATH)/rootdir/bin/gpslogd:system/bin/gpslogd \
+        $(LOCAL_PATH)/rootdir/etc/gps.conf:system/etc/gps.conf \
+        $(LOCAL_PATH)/rootdir/etc/gpsconfig.xml:system/etc/gpsconfig.xml \
+        $(LOCAL_PATH)/rootdir/etc/hisi_cfg.ini:system/etc/hisi_cfg.ini \
+        $(LOCAL_PATH)/rootdir/etc/hisi_cfg_alice.ini:system/etc/hisi_cfg_alice.ini \
+        $(LOCAL_PATH)/rootdir/etc/hisi_cfg_cherry.ini:system/etc/hisi_cfg_cherry.ini \
+        $(LOCAL_PATH)/rootdir/lib/hw/gps.hi110x.default.so:system/lib/hw/gps.hi110x.default.so \
+        $(LOCAL_PATH)/rootdir/lib/libagnssal.so:system/lib/libagnssal.so \
+        $(LOCAL_PATH)/rootdir/lib/libgnssadapter.so:system/lib/libgnssadapter.so \
+        $(LOCAL_PATH)/rootdir/lib64/hw/gps.hi110x.default.so:system/lib64/hw/gps.hi110x.default.so \
+        $(LOCAL_PATH)/rootdir/lib64/hw/gps.hi6210sft.so:system/lib64/hw/gps.hi6210sft.so \
+        $(LOCAL_PATH)/rootdir/lib64/libagnssal.so:system/lib64/libagnssal.so \
+        $(LOCAL_PATH)/rootdir/lib64/libgnssadapter.so:system/lib64/libgnssadapter.so
+
+PRODUCT_PACKAGES += \
+	gps.hi110x.default \
+	gps.hi6210sft \
+
 # Graphics
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/rootdir/lib/egl/libGLES_mali.so:system/lib/egl/libGLES_mali.so \
