@@ -18,6 +18,10 @@ PRODUCT_COPY_FILES += \
        $(LOCAL_PATH)/rootdir/isp.bin:system/isp.bin \
        $(LOCAL_PATH)/rootdir/ons.bin:system/ons.bin
 
+# Charger
+PRODUCT_PACKAGES += \
+    	charger_res_images
+
 # Chromium 32 Bit
 PRODUCT_COPY_FILES += \
        $(LOCAL_PATH)/chrome/lib/libwebviewchromium.so:system/lib/libwebviewchromium.so \
