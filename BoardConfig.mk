@@ -21,7 +21,7 @@ BOARD_USES_GENERIC_AUDIO := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := "device/huawei/hi6210sft/bluetooth"
-BOARD_BLUEDROID_VENDOR_CONF := device/huawei/hi6210sft/hi6210sft/vnd_hi6210sft.txt
+BOARD_BLUEDROID_VENDOR_CONF := device/huawei/hi6210sft/bluetooth/vnd_hi6210sft.txt
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
